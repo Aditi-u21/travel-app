@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('/fonts/WEB/css/satoshi.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 0 0% 98%;
+    --card: 220 15% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 15% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: Satoshi-Regular, "Manrope", 'Arial Narrow', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(
+      135deg,
+      #a4c6e7,
+      #b491e8,
+      #73b7d0,
+      #e9a4bc,
+      #a3c6e9
+    );
+    background-size: 600% 600%;
+    transition: background-position 680ms ease-in-out;
+  }
+
+  .dark body {
+    background: linear-gradient(
+      135deg,
+      #071127,
+      #3c2a5efb,
+      #081935,
+      #082926,
+      #1d2736e2
+    );
+    background-size: 600% 600%;
+    transition: background-position 680ms ease-in-out;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+header {
+  @apply py-6 flex items-center justify-between;
+}
+
+.logo {
+  @apply h-12 w-auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  @apply scale-105;
+}
+
+main {
+  @apply py-12;
+}
+
+footer {
+  @apply py-8 text-center text-muted-foreground;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.section {
+  @apply mb-16;
+}
+
+.card {
+  @apply bg-card text-card-foreground rounded-lg shadow-lg p-6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  @apply translate-y-[-5px] shadow-xl;
+}
+
+.logo-container {
+  display: inline-block;
+  height: 128px;
+  width: 128px;
+  vertical-align: middle;
+  margin-left: -15px;
+  margin-right: 0;
+  padding-right: 1px;
+}
+
+.logo-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .logo-container {
+    height: 110px;
+    width: 110px;
+    margin-left: -20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-container {
+    height: 192px;
+    width: 192px;
+    margin-left: -30px;
+  }
+}
+
+.logo-image:hover {
+  transform: scale(1.1);
+}
+
+header {
+  height: 80px;
+  min-height: 80px;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 0.5rem 5rem;
+  }
+}
+
+header .flex.items-center {
+  align-items: center;
+  gap: 1.5rem;
+}
+
+header h1 {
+  margin-left: 2px;
+}
+
+header .flex.items-center.gap-4 {
+  padding-right: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* Enhanced Option Card Styles */
+.option {
+  @apply relative overflow-hidden;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+.option:hover {
+  @apply bg-secondary/50;
+}
+
+.option:focus {
+  @apply ring-2 ring-primary ring-offset-2;
+}
+
+.option .bg-gradient-to-b {
+  transition: all 0.3s ease;
+}
+
+/* Map Styling */
+.google-map {
+  border-radius: 8px;
+  border: 1px solid hsl(var(--border));
+  margin-top: 16px;
+  background: hsl(var(--background));
+}
+
+.otp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+.otp-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 28rem;
+    width: 100%;
+}
+.otp-input {
+    border: 1px solid #d1d5db;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 0.375rem;
+    outline: none;
+}
+.otp-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+.otp-button {
+    background: #3b82f6;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    width: 100%;
+    cursor: pointer;
+}
+.otp-button:hover {
+    background: #2563eb;
+}
+.otp-resend-button {
+    background: #e5e7eb;
+    color: #1f2937;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    width: 100%;
+    cursor: pointer;
+}
+.otp-resend-button:hover {
+    background: #d1d5db;
+}
+.otp-resend-button:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}

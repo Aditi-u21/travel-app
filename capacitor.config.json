@@ -1,0 +1,11 @@
+{
+  "appId": "com.example.aurorago",
+  "appName": "Aurora Go",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000
+    }
+  }
+}
