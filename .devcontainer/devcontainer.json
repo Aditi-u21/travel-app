@@ -1,0 +1,8 @@
+{
+  "name": "Android Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "./setup.sh",
+  "remoteUser": "vscode"
+}
